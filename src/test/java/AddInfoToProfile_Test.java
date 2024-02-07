@@ -1,15 +1,26 @@
+import com.github.javafaker.Faker;
 import components.Header;
+import data.EnglishLevelData;
+import data.GenderData;
+import data.WorkGrafData;
 import factory.DriverFactory;
+import data.InputFieldData;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
 import pages.AuthorizationPage;
 import pages.MainPage;
 import pages.ProfilePage;
 import tools.WaitTools;
 
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
+
 public class AddInfoToProfile_Test {
+    protected Faker faker = new Faker();
     protected WebDriver driver;
     protected WaitTools waitTools;
     private final Logger logger = LogManager.getLogger(AddInfoToProfile_Test.class);
@@ -29,30 +40,45 @@ public class AddInfoToProfile_Test {
         }
     }
     @Test
-    public void addInfoToProfile() {
-        new MainPage(driver).open();
+    public void addInfoToProfile()  {
+        new MainPage(driver).open("/");
         new Header(driver).clickButtonEnter();
         new AuthorizationPage(driver).authorizationUser();
         new Header(driver).popUp();
-        new ProfilePage(driver).clearFields();
-        new ProfilePage(driver).inputFioInProfile();
-        new ProfilePage(driver).inputCountryInProfile();
-        new ProfilePage(driver).inputCityInProfile();
-        new ProfilePage(driver).inputEnglishInProfile();
-        new ProfilePage(driver).chooseReadyToRelocate();
-        new ProfilePage(driver).chooseWorkingFormat();
-        new ProfilePage(driver).chooseContacts();
-        new ProfilePage(driver).chooseGender();
-        new ProfilePage(driver).clickOnSave();
+        ProfilePage profilePage = new ProfilePage(driver);
+        profilePage.clearFieldsCountryAndEnglish();
+        profilePage.clearFields(InputFieldData.FNAME);
+        profilePage.clearFields(InputFieldData.FNAMELATIN);
+        profilePage.clearFields(InputFieldData.LNAME);
+        profilePage.clearFields(InputFieldData.LNAMELATIN);
+        profilePage.clearFields(InputFieldData.BLOGNAME);
+        profilePage.clearFields(InputFieldData.DATEOFBRTH);
+        profilePage.inputFioInProfile(InputFieldData.FNAME, faker.name().firstName());
+        profilePage.inputFioInProfile(InputFieldData.FNAMELATIN, faker.name().lastName());
+        profilePage.inputFioInProfile(InputFieldData.LNAME, faker.name().firstName());
+        profilePage.inputFioInProfile(InputFieldData.LNAMELATIN, faker.name().name());
+        profilePage.inputFioInProfile(InputFieldData.BLOGNAME, faker.name().name());
+        profilePage.inputFioInProfile(InputFieldData.DATEOFBRTH,
+                faker.date().birthday().toInstant().atZone(ZoneId.
+                        systemDefault()).toLocalDate().format(DateTimeFormatter.ofPattern("dd.MM.yyyy")));
+        profilePage.inputCountryInProfile();
+        profilePage.inputCityInProfile();
+        profilePage.inputEnglishInProfile(EnglishLevelData.BEGINNER);
+        profilePage.chooseReadyToRelocate(true);
+        profilePage.chooseWorkingFormat(true, WorkGrafData.REMOTELY);
+        profilePage.chooseContactsOne("skype", "Treyser452");
+        profilePage.chooseContactsTwo("habr", "Treyser452");
+        profilePage.chooseGender(GenderData.MALE);
+        profilePage.clickOnSave();
 
     }
     @Test
-    public void checkProfile() {
+    public void checkProfile() throws InterruptedException {
         new MainPage(driver).open();
         new Header(driver).clickButtonEnter();
         new AuthorizationPage(driver).authorizationUser();
         new Header(driver).popUp();
-        new ProfilePage(driver).assertions();
+        new ProfilePage(driver).checkingFields();
     }
 }
 

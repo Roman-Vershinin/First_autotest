@@ -16,7 +16,7 @@ public class Header extends AbsCommon {
         driver.findElement(By.xpath("//button[text()=\"Войти\"]")).click();
     }
     public void popUp() {
-        driver.findElement(By.xpath("//div[@class='sc-r03h0s-5 sc-1youhxc-2 bYKNcH imWQF sc-1og4wiw-0-Component fgPsmr']")).click();
+        driver.findElement(By.xpath("//img[@src=\"/_next/static/images/img/blue-owl-058dcbc134c3f34a7d9d5d52ecfced60.png\"]")).click();
         driver.findElement(By.xpath("//div/a[@href='https://otus.ru/lk/biography/personal']")).click();
     }
 }

@@ -62,6 +62,11 @@
             <version>5.10.1</version>
             <scope>compile</scope>
         </dependency>
+        <dependency>
+            <groupId>com.github.javafaker</groupId>
+            <artifactId>javafaker</artifactId>
+            <version>1.0.2</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -72,6 +77,7 @@
                 <version>${surefire.plugin.version}</version>
                 <configuration>
                     <systemPropertyVariables>
+                        <base.url>https://otus.ru</base.url>
                         <browser.name>chrome</browser.name>
                     </systemPropertyVariables>
                 </configuration>

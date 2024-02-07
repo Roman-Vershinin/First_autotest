@@ -1,11 +1,9 @@
-2024-02-04 20:09:00.113 [main] INFO  pages.ProfilePage - Поля очищены
-2024-02-04 20:09:00.664 [main] INFO  pages.ProfilePage - Введены ФИО и дата рождения
-2024-02-04 20:09:00.816 [main] INFO  pages.ProfilePage - Страна выбрана
-2024-02-04 20:09:11.573 [main] INFO  pages.ProfilePage - Город выбран
-2024-02-04 20:09:11.722 [main] INFO  pages.ProfilePage - Выбран уровень английского
-2024-02-04 20:09:11.797 [main] INFO  pages.ProfilePage - Не готов к переезду
-2024-02-04 20:09:11.878 [main] INFO  pages.ProfilePage - Выбран формат работы
-2024-02-04 20:09:12.219 [main] INFO  pages.ProfilePage - Добавлен 1 контакт
-2024-02-04 20:09:12.522 [main] INFO  pages.ProfilePage - Добавлен 2 контакт
-2024-02-04 20:09:12.692 [main] INFO  pages.ProfilePage - Добавлен пол
-2024-02-04 20:09:45.114 [main] INFO  pages.ProfilePage - Сохранились
+2024-02-07 16:07:59.479 [main] INFO  pages.ProfilePage - Страна выбрана
+2024-02-07 16:08:10.218 [main] INFO  pages.ProfilePage - Город выбран
+2024-02-07 16:08:10.340 [main] INFO  pages.ProfilePage - Выбран уровень английского
+2024-02-07 16:08:10.403 [main] INFO  pages.ProfilePage - Готовность к переезду
+2024-02-07 16:08:10.424 [main] INFO  pages.ProfilePage - Выбран формат работы
+2024-02-07 16:08:10.744 [main] INFO  pages.ProfilePage - Добавлен 1 контакт
+2024-02-07 16:08:11.076 [main] INFO  pages.ProfilePage - Добавлен 2 контакт
+2024-02-07 16:08:11.263 [main] INFO  pages.ProfilePage - Добавлен пол
+2024-02-07 16:08:47.207 [main] INFO  pages.ProfilePage - Сохранились
