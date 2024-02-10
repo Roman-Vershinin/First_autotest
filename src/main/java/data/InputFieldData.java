@@ -9,7 +9,7 @@ public enum InputFieldData {
     BLOGNAME("blog_name"),
     DATEOFBRTH("date_of_birth");
 
-    public String name;
+    private String name;
 
     InputFieldData (String name) {
         this.name = name;

@@ -20,16 +20,14 @@ import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 
 public class AddInfoToProfile_Test {
-    protected Faker faker = new Faker();
-    protected WebDriver driver;
-    protected WaitTools waitTools;
+    private Faker faker = new Faker();
+    private WebDriver driver;
     private final Logger logger = LogManager.getLogger(AddInfoToProfile_Test.class);
 
 
     @BeforeEach
     public void driverSetup() {
     driver = new DriverFactory(driver).create();
-    waitTools = new WaitTools(driver);
     }
 
 
@@ -40,7 +38,7 @@ public class AddInfoToProfile_Test {
         }
     }
     @Test
-    public void addInfoToProfile()  {
+    public void addInfoToProfile() {
         new MainPage(driver).open("/");
         new Header(driver).clickButtonEnter();
         new AuthorizationPage(driver).authorizationUser();
@@ -73,7 +71,7 @@ public class AddInfoToProfile_Test {
 
     }
     @Test
-    public void checkProfile() throws InterruptedException {
+    public void checkProfile() {
         new MainPage(driver).open();
         new Header(driver).clickButtonEnter();
         new AuthorizationPage(driver).authorizationUser();

@@ -6,7 +6,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class AuthorizationPage extends AbsBasePage{
       private String login = System.getProperty("login");
-        private String password = System.getProperty("password");
+      private String password = System.getProperty("password");
     public AuthorizationPage(WebDriver driver) {
         super(driver);
     }

@@ -29,8 +29,7 @@ public class ProfilePage extends AbsBasePage{
         driver.findElement(By.xpath("//div[@data-num='1']/div/div/button[@type='button']")).click();
         driver.findElement(By.cssSelector(".js-lk-cv-dependent-master.js-lk-cv-custom-select")).click();
         driver.findElement(By.xpath("//button[@data-value='' and @data-empty='Не указано' and @title='Не выбрано']")).click();
-        driver.findElement(By.cssSelector("div[class='select lk-cv-block__input lk-cv-block__input_full js-lk-cv-custom-select']" +
-                "[data-selected-option-class='lk-cv-block__select-option_selected']")).click();
+        driver.findElement(By.xpath("//input[@name='english_level']/ancestor:: div[contains(@class, 'js-lk-cv-custom-select')]")).click();
         driver.findElement(By.xpath("//div[@class='lk-cv-block__select-options js-custom-select-options-container']" +
                 "/div/button[@title='Не выбрано']")).click();
     }
@@ -56,6 +55,7 @@ public class ProfilePage extends AbsBasePage{
         WebElement englishLevelSelectElement = driver.findElement(By
                 .xpath("//input[@name='english_level']/ancestor:: div[contains(@class, 'js-lk-cv-custom-select')]"));
         englishLevelSelectElement.click();
+
         driver.findElement(By.cssSelector(String.format("[title*='%s']", englishLevelData.getName()))).click();
         logger.info("Выбран уровень английского");
     }
@@ -75,12 +75,14 @@ public class ProfilePage extends AbsBasePage{
         logger.info("Выбран формат работы");
     }
     public void chooseContactsOne(String contactType, String contactValue) {
-        driver.findElement(By.cssSelector("button.lk-cv-block__action.lk-cv-block__action_md-no-spacing.js-formset-add.js-lk-cv-custom-select-add")).click();
+        driver.findElement(By.xpath("//button[@type='button' and text()='Добавить']")).click();
         waitTools.waitForCondition(ExpectedConditions.elementToBeClickable(By.xpath("//span[@class=\"placeholder\" and" +
                 " text()=\"Способ связи\"]")));
         driver.findElement(By.xpath("//span[@class=\"placeholder\" and text()=\"Способ связи\"]")).click();
         driver.findElement(By.xpath(String.format("//div[@class='lk-cv-block__select-options lk-cv-block__select-options_left" +
                 " js-custom-select-options-container']/div/button[@data-value='%s']", contactType))).click();
+
+
         driver.findElement(By.xpath("//*[@id=\"id_contact-2-value\"]")).sendKeys(contactValue);
         logger.info("Добавлен 1 контакт");
         driver.findElement(By.cssSelector("button.lk-cv-block__action.lk-cv-block__action_md-no-spacing.js-formset-add" +
@@ -91,6 +93,7 @@ public class ProfilePage extends AbsBasePage{
         driver.findElement(By.xpath("//span[@class='placeholder']")).click();
         driver.findElement(By.xpath(String.format("//div[@class='lk-cv-block__select-options lk-cv-block__select-options_left" +
                 " js-custom-select-options-container']/div/button[@data-value='%s']", contactType))).click();
+
         driver.findElement(By.xpath("//*[@id=\"id_contact-3-value\"]")).sendKeys(contactValue);
         logger.info("Добавлен 2 контакт");
 
@@ -118,8 +121,7 @@ public class ProfilePage extends AbsBasePage{
         Assertions.assertTrue(!driver.findElement(By.cssSelector(".input-icon > input:nth-child(1)")).getAttribute("value").isEmpty());
         Assertions.assertTrue(!driver.findElement(By.cssSelector(".js-lk-cv-dependent-master > label:nth-child(1) > div:nth-child(2)")).getText().isEmpty());
         Assertions.assertTrue(!driver.findElement(By.cssSelector(".js-lk-cv-dependent-slave-city > label:nth-child(1) > div:nth-child(2)")).getText().isEmpty());
-        Assertions.assertTrue(!driver.findElement(By.cssSelector("div[class='select lk-cv-block__input" +
-                " lk-cv-block__input_full js-lk-cv-custom-select'][data-selected-option-class='lk-cv-block__select-option_selected']")).getText().isEmpty());
+        Assertions.assertTrue(!driver.findElement(By.xpath("//input[@name='english_level']/ancestor:: div[contains(@class, 'js-lk-cv-custom-select')]")).getText().isEmpty());
         Assertions.assertTrue(driver.findElement(By.xpath("//input[@id='id_ready_to_relocate_1']")).isSelected());
         Assertions.assertTrue(driver.findElement(By.cssSelector("input[title='Удаленно']")).isSelected());
         Assertions.assertTrue(!driver.findElement(By.id("id_contact-0-value")).getAttribute("value").isEmpty());
