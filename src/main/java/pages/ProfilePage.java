@@ -30,8 +30,8 @@ public class ProfilePage extends AbsBasePage{
         driver.findElement(By.cssSelector(".js-lk-cv-dependent-master.js-lk-cv-custom-select")).click();
         driver.findElement(By.xpath("//button[@data-value='' and @data-empty='Не указано' and @title='Не выбрано']")).click();
         driver.findElement(By.xpath("//input[@name='english_level']/ancestor:: div[contains(@class, 'js-lk-cv-custom-select')]")).click();
-        driver.findElement(By.xpath("//div[@class='lk-cv-block__select-options js-custom-select-options-container']" +
-                "/div/button[@title='Не выбрано']")).click();
+        driver.findElement(By.xpath("//input[@data-title='Уровень знания английского языка']" +
+                "/parent::*/parent::*//following-sibling::button[contains(text(),'Не указано')]")).click();
     }
     public void inputFioInProfile(InputFieldData inputFieldData, String data) {
         driver.findElement(By.cssSelector(String.format("input[name='%s']", inputFieldData.getName())))
@@ -53,7 +53,7 @@ public class ProfilePage extends AbsBasePage{
     }
     public void inputEnglishInProfile(EnglishLevelData englishLevelData) {
         WebElement englishLevelSelectElement = driver.findElement(By
-                .xpath("//input[@name='english_level']/ancestor:: div[contains(@class, 'js-lk-cv-custom-select')]"));
+                .xpath("//input[@data-title='Уровень знания английского языка']/following-sibling::div"));
         englishLevelSelectElement.click();
 
         driver.findElement(By.cssSelector(String.format("[title*='%s']", englishLevelData.getName()))).click();
@@ -79,20 +79,17 @@ public class ProfilePage extends AbsBasePage{
         waitTools.waitForCondition(ExpectedConditions.elementToBeClickable(By.xpath("//span[@class=\"placeholder\" and" +
                 " text()=\"Способ связи\"]")));
         driver.findElement(By.xpath("//span[@class=\"placeholder\" and text()=\"Способ связи\"]")).click();
-        driver.findElement(By.xpath(String.format("//div[@class='lk-cv-block__select-options lk-cv-block__select-options_left" +
-                " js-custom-select-options-container']/div/button[@data-value='%s']", contactType))).click();
+        driver.findElement(By.xpath(String.format("//*[@name='contact-2-service']/parent::*/parent::*//following-sibling::button[contains(text(),'%s')]", contactType))).click();
 
 
         driver.findElement(By.xpath("//*[@id=\"id_contact-2-value\"]")).sendKeys(contactValue);
         logger.info("Добавлен 1 контакт");
-        driver.findElement(By.cssSelector("button.lk-cv-block__action.lk-cv-block__action_md-no-spacing.js-formset-add" +
-                ".js-lk-cv-custom-select-add")).click();
+        driver.findElement(By.xpath("//button[@type='button' and text()='Добавить']")).click();
 
     }
     public void chooseContactsTwo(String contactType, String contactValue) {
         driver.findElement(By.xpath("//span[@class='placeholder']")).click();
-        driver.findElement(By.xpath(String.format("//div[@class='lk-cv-block__select-options lk-cv-block__select-options_left" +
-                " js-custom-select-options-container']/div/button[@data-value='%s']", contactType))).click();
+        driver.findElement(By.xpath(String.format("//*[@name='contact-3-service']/parent::*/parent::*//following-sibling::button[contains(text(),'%s')]", contactType))).click();
 
         driver.findElement(By.xpath("//*[@id=\"id_contact-3-value\"]")).sendKeys(contactValue);
         logger.info("Добавлен 2 контакт");
@@ -106,10 +103,9 @@ public class ProfilePage extends AbsBasePage{
     }
     public void clickOnSave() {
         driver.findElement(By.xpath("//*[contains(text(), 'Сохранить и продолжить')]")).click();
-        WebElement textSave = driver.findElement(By.xpath("//div[@class='container container-padding-top-" +
-                "half container-padding-bottom-half']/span/span"));
+        WebElement textSave = driver.findElement(By.xpath("//h3"));
         String actualText = textSave.getText().trim();
-        Assertions.assertEquals("Данные успешно сохранены", actualText);
+        Assertions.assertEquals("Навыки и технологии", actualText);
         logger.info("Сохранились");
     }
     public void checkingFields() {
@@ -118,10 +114,10 @@ public class ProfilePage extends AbsBasePage{
         Assertions.assertTrue(!driver.findElement(By.id("id_fname_latin")).getAttribute("value").isEmpty());
         Assertions.assertTrue(!driver.findElement(By.id("id_lname_latin")).getAttribute("value").isEmpty());
         Assertions.assertTrue(!driver.findElement(By.id("id_blog_name")).getAttribute("value").isEmpty());
-        Assertions.assertTrue(!driver.findElement(By.cssSelector(".input-icon > input:nth-child(1)")).getAttribute("value").isEmpty());
-        Assertions.assertTrue(!driver.findElement(By.cssSelector(".js-lk-cv-dependent-master > label:nth-child(1) > div:nth-child(2)")).getText().isEmpty());
-        Assertions.assertTrue(!driver.findElement(By.cssSelector(".js-lk-cv-dependent-slave-city > label:nth-child(1) > div:nth-child(2)")).getText().isEmpty());
-        Assertions.assertTrue(!driver.findElement(By.xpath("//input[@name='english_level']/ancestor:: div[contains(@class, 'js-lk-cv-custom-select')]")).getText().isEmpty());
+        Assertions.assertTrue(!driver.findElement(By.xpath("//input[@title='День рождения']")).getAttribute("value").isEmpty());
+        Assertions.assertTrue(!driver.findElement(By.cssSelector(".js-lk-cv-dependent-master.js-lk-cv-custom-select")).getText().isEmpty());
+        Assertions.assertTrue(!driver.findElement(By.xpath("//input[@data-title='Город']/following-sibling::div")).getText().isEmpty());
+        Assertions.assertTrue(!driver.findElement(By.xpath("//input[@data-title='Уровень знания английского языка']/following-sibling::div")).getText().isEmpty());
         Assertions.assertTrue(driver.findElement(By.xpath("//input[@id='id_ready_to_relocate_1']")).isSelected());
         Assertions.assertTrue(driver.findElement(By.cssSelector("input[title='Удаленно']")).isSelected());
         Assertions.assertTrue(!driver.findElement(By.id("id_contact-0-value")).getAttribute("value").isEmpty());

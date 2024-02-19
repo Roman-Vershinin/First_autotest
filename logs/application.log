@@ -43,3 +43,35 @@
 2024-02-10 15:31:14.923 [main] INFO  pages.ProfilePage - Добавлен 2 контакт
 2024-02-10 15:31:15.145 [main] INFO  pages.ProfilePage - Добавлен пол
 2024-02-10 15:31:57.870 [main] INFO  pages.ProfilePage - Сохранились
+2024-02-19 19:20:39.831 [main] INFO  pages.ProfilePage - Страна выбрана
+2024-02-19 19:20:50.463 [main] INFO  pages.ProfilePage - Город выбран
+2024-02-19 19:20:50.558 [main] INFO  pages.ProfilePage - Выбран уровень английского
+2024-02-19 19:20:50.602 [main] INFO  pages.ProfilePage - Готовность к переезду
+2024-02-19 19:20:50.619 [main] INFO  pages.ProfilePage - Выбран формат работы
+2024-02-19 19:23:06.233 [main] INFO  pages.ProfilePage - Страна выбрана
+2024-02-19 19:23:16.868 [main] INFO  pages.ProfilePage - Город выбран
+2024-02-19 19:23:16.985 [main] INFO  pages.ProfilePage - Выбран уровень английского
+2024-02-19 19:23:17.038 [main] INFO  pages.ProfilePage - Готовность к переезду
+2024-02-19 19:23:17.058 [main] INFO  pages.ProfilePage - Выбран формат работы
+2024-02-19 19:23:17.344 [main] INFO  pages.ProfilePage - Добавлен 1 контакт
+2024-02-19 19:23:17.595 [main] INFO  pages.ProfilePage - Добавлен 2 контакт
+2024-02-19 19:23:17.776 [main] INFO  pages.ProfilePage - Добавлен пол
+2024-02-19 19:24:02.482 [main] INFO  pages.ProfilePage - Сохранились
+2024-02-19 20:04:52.597 [main] INFO  pages.ProfilePage - Страна выбрана
+2024-02-19 20:05:03.310 [main] INFO  pages.ProfilePage - Город выбран
+2024-02-19 20:05:03.408 [main] INFO  pages.ProfilePage - Выбран уровень английского
+2024-02-19 20:05:03.464 [main] INFO  pages.ProfilePage - Готовность к переезду
+2024-02-19 20:05:03.483 [main] INFO  pages.ProfilePage - Выбран формат работы
+2024-02-19 20:05:03.803 [main] INFO  pages.ProfilePage - Добавлен 1 контакт
+2024-02-19 20:05:04.059 [main] INFO  pages.ProfilePage - Добавлен 2 контакт
+2024-02-19 20:05:04.206 [main] INFO  pages.ProfilePage - Добавлен пол
+2024-02-19 20:05:44.727 [main] INFO  pages.ProfilePage - Сохранились
+2024-02-19 20:10:00.626 [main] INFO  pages.ProfilePage - Страна выбрана
+2024-02-19 20:10:11.289 [main] INFO  pages.ProfilePage - Город выбран
+2024-02-19 20:10:11.381 [main] INFO  pages.ProfilePage - Выбран уровень английского
+2024-02-19 20:10:11.433 [main] INFO  pages.ProfilePage - Готовность к переезду
+2024-02-19 20:10:11.453 [main] INFO  pages.ProfilePage - Выбран формат работы
+2024-02-19 20:10:11.718 [main] INFO  pages.ProfilePage - Добавлен 1 контакт
+2024-02-19 20:10:11.970 [main] INFO  pages.ProfilePage - Добавлен 2 контакт
+2024-02-19 20:10:12.101 [main] INFO  pages.ProfilePage - Добавлен пол
+2024-02-19 20:10:44.284 [main] INFO  pages.ProfilePage - Сохранились

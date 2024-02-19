@@ -64,8 +64,8 @@ public class AddInfoToProfile_Test {
         profilePage.inputEnglishInProfile(EnglishLevelData.BEGINNER);
         profilePage.chooseReadyToRelocate(true);
         profilePage.chooseWorkingFormat(true, WorkGrafData.REMOTELY);
-        profilePage.chooseContactsOne("skype", "Treyser452");
-        profilePage.chooseContactsTwo("habr", "Treyser452");
+        profilePage.chooseContactsOne("Skype", "Treyser452");
+        profilePage.chooseContactsTwo("Habr", "Treyser452");
         profilePage.chooseGender(GenderData.MALE);
         profilePage.clickOnSave();
 
